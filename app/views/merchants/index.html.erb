@@ -1,0 +1,24 @@
+<h1>All Merchants</h1>
+
+
+<table>
+	<thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @merchants.each do |recipe| %>
+      <tr>
+        <td><%= merchants.first_name %></td>
+        <td><%= merchants.last_name %></td>
+       <!--  <td><%= link_to 'Show', username %></td>
+        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
+        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>

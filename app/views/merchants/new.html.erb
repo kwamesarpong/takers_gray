@@ -1,0 +1,17 @@
+<h1>Sign-up New Merchant View</h1>
+<!-- url: merchants_path  maps to merchants#create method  -->
+<%= form_for :merchant, url: merchants_path do |f| %>
+	<p>
+		<%= f.label :firstname %><br>
+    <%= f.text_field :first_name %><br>
+    <%= f.label :lastname %><br>
+    <%= f.text_field :last_name %><br>
+    <%= f.label :email %><br>
+    <%= f.email_field :email %><br>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %><br>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+	<% end %>
