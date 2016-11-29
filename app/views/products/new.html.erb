@@ -1,0 +1,16 @@
+<h1>Creating a New Product for a Certain Merchant</h1>
+
+<%= form_for :product, url: merchant_products_path do |f| %>
+	<p>
+		<%= f.label :title %><br>
+	    <%= f.text_field :title %><br>
+	    <%= f.label :description %><br>
+	    <%= f.text_field :description %><br>
+	    <%= f.label :price %><br>
+	    <%= f.number_field(:price, in: 1.0..20.0, step: 0.5) %><br>
+	   
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+	<% end %>

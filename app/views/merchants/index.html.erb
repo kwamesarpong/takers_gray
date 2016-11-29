@@ -10,13 +10,13 @@
     </tr>
   </thead>
   <tbody>
-    <% @merchants.each do |recipe| %>
+    <% @merchant.each do |merchant| %>
       <tr>
-        <td><%= merchants.first_name %></td>
-        <td><%= merchants.last_name %></td>
-       <!--  <td><%= link_to 'Show', username %></td>
-        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        <td><%= merchant.first_name %></td>
+        <td><%= merchant.last_name %></td>
+        <td><%= link_to 'Create New Product', new_merchant_product_path(merchant) %></td>
+        <td><%= link_to 'Edit', edit_merchant_path(merchant) %></td>
+        <td><%= link_to 'Destroy', merchant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

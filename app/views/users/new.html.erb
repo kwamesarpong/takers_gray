@@ -1,0 +1,19 @@
+<h1>Sign-up New User View</h1>
+<!-- url: merchants_path  maps to merchants#create method  -->
+<%= form_for :user, url: users_path do |f| %>
+	<p>
+		<%= f.label :firstname %><br>
+    <%= f.text_field :first_name %><br>
+    <%= f.label :lastname %><br>
+    <%= f.text_field :last_name %><br>
+    <%= f.label :Date_Of_Birth %><br>
+    <%= f.date_field :DOB %><br>
+    <%= f.label :National_ID %><br>
+    <%= f.text_field :national_id %><br>
+    <%= f.label :Telephone_number %><br>
+    <%= f.text_field :telephone %><br>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+	<% end %>

@@ -1,0 +1,22 @@
+<h1>Listing All Products Belonging to This Merchant</h1>
+<table>
+	<thead>
+    <tr>
+    <th>Merchant ID</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.merchant_id %></td>
+        <td><%= product.title %></td>
+        <td><%= product.description %></td>
+       
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
