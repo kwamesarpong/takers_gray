@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @products.each do |product| %>
+    <% @product.each do |product| %>
       <tr>
         <td><%= product.merchant_id %></td>
         <td><%= product.title %></td>
@@ -21,6 +21,8 @@
        
       </tr>
     <% end %>
+    
   </tbody>
 
 </table>
+<p><%= will_paginate @product %></p>
