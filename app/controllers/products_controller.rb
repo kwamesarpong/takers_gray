@@ -1,25 +1,38 @@
 class ProductsController < ApplicationController
 	def index
-		@product = Product.paginate(:per_page => 9, :page => params[:page])
+		
+		
+		@product = Product.all().paginate(:per_page => 9, :page => params[:page])
+
+		# @merchant = Merchant.find(params[:merchant_id])
+		
+		# @product = Merchant.index.paginate(:per_page => 9, :page => params[:page])
+		
+		#@product = Product.
+		end
+
+	def show
 		
 	end
 
-	def show
-		@product = Product.find_by_id(params[:id])
-	end
 
 	def new
+ 
 	end
 	
 	def create
 		@merchant = Merchant.find(params[:merchant_id])
 
-		product = @merchant.products.create(prod_params)
+		product = @merchant.products.create(prod_params) #Aiiiii ???
 
-		redirect_to action: "show", id: product.id
+		redirect_to merchant_products_path() 
 
 		#redirect_to merchant_products_path ()
 
+	end
+
+	def update
+		
 	end
 
 	private

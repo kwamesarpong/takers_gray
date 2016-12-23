@@ -1,4 +1,4 @@
-<h1>Listing All Products</h1>
+<h1>Listing All users</h1>
 <table>
 	<thead>
     <tr>
@@ -11,12 +11,12 @@
     </tr>
   </thead>
   <tbody>
-    <% @product.each do |product| %>
+    <% @user.each do |user| %>
       <tr>
-        <td><%= product.merchant_id %></td>
-        <td><%= product.title %></td>
-        <td><%= product.description %></td>
-        <td><%= product.price %></td>
+        <td><%= user.id %></td>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.national_id %></td>
         <td><a href="#">BUY</a></td>
        
       </tr>
@@ -25,5 +25,3 @@
   </tbody>
 
 </table>
-
-<p><%= will_paginate @product %></p> 

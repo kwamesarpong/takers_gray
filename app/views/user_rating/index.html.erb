@@ -1,0 +1,24 @@
+<h1>Listing All urs</h1>
+<table>
+	<thead>
+    <tr>
+    <th>User ID</th>
+      <th>Rating</th>
+      <th>Limit</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @ur.each do |ur| %>
+      <tr>
+        <td><%= ur.user_id %></td>
+        <td><%= ur.rating %></td>
+        <td><%= ur.limit %></td>
+      
+       
+      </tr>
+    <% end %>
+    
+  </tbody>
+
+</table>
