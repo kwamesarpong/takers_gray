@@ -7,11 +7,15 @@
     <%= f.label :lastname %><br>
     <%= f.text_field :last_name %><br>
     <%= f.label :Date_Of_Birth %><br>
-    <%= f.date_field :DOB %><br>
+    <%= f.text_field :DOB %><br>
     <%= f.label :National_ID %><br>
-    <%= f.text_field :national_id %><br>
+    <%= f.number_field :national_id %><br>
     <%= f.label :Telephone_number %><br>
     <%= f.text_field :tel_number %><br>
+    <%= f.label :Password %><br>
+    <%= f.password_field :password %><br>
+    <%= f.label :Confirm_Password %><br>
+    <%= f.password_field :conf_pwd %><br>
 	</p>
 	<p>
 		<%= f.submit %>

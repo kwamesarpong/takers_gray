@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
 	def create
 		@merchant = Merchant.find(params[:merchant_id])
 
-		product = @merchant.products.create(prod_params) #Aiiiii ???
+		product = @merchant.products.create(prod_params)
 
 		redirect_to merchant_products_path() 
 

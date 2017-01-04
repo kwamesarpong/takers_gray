@@ -19,16 +19,13 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		
 		
-		if @user.save 
-			userid = @user.id
-			#Default rating for NEW user... Cause we are kind like that....
-			rated = {user_id: userid, rating: 1.0, limit: 5.5, interest: 0.2}
-
-			@rating = UserRating.new(rated)
+		if @user.save
+			
+			@rating = UserRating.new(first_rating)
 			
 			if @rating.save
 
-				#Takes you to show action 
+				#Takes you to Products show action 
 				redirect_to products_url
 			else
 				#Error handling and management
@@ -37,7 +34,9 @@ class UsersController < ApplicationController
 		#redirect_to products_url	
 	else
 
-		render 'new'
+		#render plain: @user.errors
+
+		render plain: @user.inspect
 	end
 	end
 
@@ -57,17 +56,15 @@ class UsersController < ApplicationController
 
 	private
 
-	def user_params
-		params.require(:user).permit(:first_name,:last_name,:DOB,:tel_number,:national_id)
-
+	def first_rating
+		#Default rating for NEW user... Cause we are kind like that....
+		rated = {user_id: @user.id, rating: 1.0, limit: 5.5, interest: 0.2}
+		return rated
 	end
 
-	# def rating_params
-		
-	# 	userid = @user.id
+	def user_params
+		params.require(:user).permit(:first_name, :last_name, :DOB, :tel_number, :national_id, :password)
 
-	# 	params.require(:user).permit(userid, 2.0, 5.5)
-
-	# end
+	end
 
 end

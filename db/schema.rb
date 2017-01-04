@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161223014908) do
+ActiveRecord::Schema.define(version: 20161229231022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20161223014908) do
     t.text     "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_merchants_on_email", unique: true, using: :btree
   end
 
   create_table "products", force: :cascade do |t|
@@ -62,8 +63,9 @@ ActiveRecord::Schema.define(version: 20161223014908) do
     t.date     "DOB"
     t.integer  "national_id"
     t.string   "tel_number"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
   end
 
   add_foreign_key "products", "merchants"

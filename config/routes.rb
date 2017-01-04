@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  #Prefixing; I think is what's happening here...
+	  get '/login',		to: 'sessions#new' # any time a routing error related to controller chaeck HERE
+	  post '/login',	to: 'sessions#create'
+	  delete '/login',	to: 'sessions#destroy'
+
 	resources :merchants do
 		member do  	# A member depends on the id presented to generate a view. 
 					# So it acts on a single object. In this case, the single merchant
@@ -9,8 +14,12 @@ Rails.application.routes.draw do
 	#READ ON NESTED RESOURCES
 	resources :users do
 		
-		resources :user_rating
-		
+		member do
+
+			get :user_rating
+			get :purchases
+		end
+		resources :purchases
 	end
 
 	resources :products, only: [:index]
