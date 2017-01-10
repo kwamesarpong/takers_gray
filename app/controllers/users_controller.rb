@@ -25,8 +25,8 @@ class UsersController < ApplicationController
 			
 			if @rating.save
 
-				#Takes you to Products show action 
-				redirect_to products_url
+				#Takes you to Login Page
+				redirect_to login_url
 			else
 				#Error handling and management
 				render plain: duh
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
 		#render plain: @user.errors
 
-		render plain: @user.inspect
+		render @user.errors
 	end
 	end
 
@@ -58,7 +58,7 @@ class UsersController < ApplicationController
 
 	def first_rating
 		#Default rating for NEW user... Cause we are kind like that....
-		rated = {user_id: @user.id, rating: 1.0, limit: 5.5, interest: 0.2}
+		rated = {user_id: @user.id, rating: 1.0, limit: 7.5, interest: 0.2}
 		return rated
 	end
 
@@ -66,5 +66,10 @@ class UsersController < ApplicationController
 		params.require(:user).permit(:first_name, :last_name, :DOB, :tel_number, :national_id, :password)
 
 	end
+
+
+	# def unused_param
+	# 	params.require(:user).permit(:conf_pwd)
+	# end
 
 end

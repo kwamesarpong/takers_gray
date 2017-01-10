@@ -2,7 +2,7 @@ class User < ApplicationRecord
 	
 	
 	has_many :user_rating
-	#has_many :purchase #fragment consider revision
+	#has_many :purchases #fragment consider revision
 
 	validates :first_name, presence: true, length: { maximum: 50 }, format: { with: /\A[a-zA-Z]+\z/,
     message: "only allows letters" }

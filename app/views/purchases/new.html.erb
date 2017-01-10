@@ -1,0 +1,33 @@
+<h1>Listing New Purchase</h1>
+
+  <%= form_for :purchases, :url => {:action => "create"}, method: :post do |f| %>
+
+  	
+  	<p>
+  	<%= f.label :User_ID %>
+  	<%= f.text_field :user_id, :value => session[ :user_id ] %> 
+  	</p>
+
+  	<p>
+  	<%= f.label :Product %>
+  	<%= f.text_field :product_id, :value => params[ :id ] %> 
+  	</p>
+
+  	<p>
+  	<%= f.label :interest_rate %>
+  	<%= f.text_field :rate, :value => (UserRating.find_by_user_id( session[:user_id]).interest) %> 
+  	</p>
+
+  	<p>
+  	<%= f.label :price %>
+  	<%= f.text_field :price, :value => (Product.find_by_id( params[:id]).price) %>
+  	</p>
+
+  	<p>
+  	<%= f.label :total %> 
+  	<%= f.text_field :total %>
+  	</p>
+
+  <%= f.submit %>
+  <% end %>
+  

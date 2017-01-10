@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   #Prefixing; I think is what's happening here...
-	  get '/login',		to: 'sessions#new' # any time a routing error related to controller chaeck HERE
+	  get '/login',		to: 'sessions#new' # any time a routing error related to controller check HERE
 	  post '/login',	to: 'sessions#create'
-	  delete '/login',	to: 'sessions#destroy'
+	  delete '/logout',	to: 'sessions#destroy'
 
 	resources :merchants do
 		member do  	# A member depends on the id presented to generate a view. 
@@ -19,8 +19,9 @@ Rails.application.routes.draw do
 			get :user_rating
 			get :purchases
 		end
-		resources :purchases
+		
 	end
+	resources :purchases, only: [:create, :new]
 
 	resources :products, only: [:index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -4,23 +4,21 @@ class PurchasesController < ApplicationController
 
 	end
 
-	def new
-
-	end
-
 	def create
 		#dummy create purchase method to test something out...
 		#USER SESSIONS... FUCK!
-		@ur = UserRating.where(:user_id => param[:u_id])
-		@prod = Product.where(:id => param[:p_id])
+		@ur = UserRating.find_by_user_id(session[:user_id]).limit
+		@prod = Product.find_by_id(purchase_params[:product_id]).price
 		@purchase = Purchase.new(purchase_params)
 
-		if @ur.limit < @prod.price
+		if @prod < @ur
+			
 			@purchase.save
 
 			render plain: 'Done!'
 		else
-			render plain: 'doh'
+
+			render plain: 'ERROR'
 		end
 	end
 
@@ -32,11 +30,11 @@ class PurchasesController < ApplicationController
 
 	def purchase_params
 		
-		params.require(:product).permit(:user_id,:product_id,:price,:rate,:total)
+		params.require(:purchases).permit(:user_id,:product_id,:price,:rate,:total)
 
-		total = price * rate
+		# params[:total] = params[:price] * params[:rate]
 
-		return total #Italeta shida??
+		# return params[:total] #Italeta shida??
 
 	end
 

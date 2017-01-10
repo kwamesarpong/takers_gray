@@ -8,6 +8,8 @@ class UserRatingController < ApplicationController
 
 	def show
 
+		@ur = UserRating.find_by_user_id(params[:user_id])
+
 	end
 
 	def create
